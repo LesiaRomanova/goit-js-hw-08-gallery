@@ -33,6 +33,7 @@ const openModalWindow = (event) => {
     event.preventDefault();
     refs.lightBox.classList.add("is-open");
     refs.bigImg.src = event.target.dataset.source;
+    refs.bigImg.alt = event.target.alt;
     document.addEventListener("keydown", onPressEscape);
   }
 };
@@ -40,6 +41,8 @@ const openModalWindow = (event) => {
 const closeOpenWindow = (event) => {
   refs.lightBox.classList.remove("is-open");
   document.removeEventListener("keydown", onPressEscape);
+  refs.bigImg.src = "";
+  refs.bigImg.alt = "";
 };
 
 const onPressEscape = (event) => {
